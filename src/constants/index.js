@@ -1,181 +1,323 @@
 // index.js
 export const servicesData = [
   {
-    title: "FullStack Development",
+    title: "AI & Intelligent Automation",
     description:
-      "Your business deserves a fast, secure, and future-proof digital foundation. I develop custom web apps with clean architecture, optimized databases, and seamless integrations—ensuring reliability at every layer.",
+      "Designing retrieval-augmented systems, GenAI copilots, and production-ready ML that unlock measurable efficiency gains.",
     items: [
       {
-        title: "Backend Engineering",
-        description: "(REST/GraphQL APIs, Microservices, Auth Systems)",
+        title: "Retrieval-Augmented Generation",
+        description:
+          "End-to-end RAG pipelines, evaluation, grounding, observability",
       },
       {
-        title: "Frontend Excellence",
-        description: "(React, Vue, TypeScript, Interactive UI/UX)",
+        title: "Computer Vision",
+        description: "YOLOv5, optical flow, Google ML Kit, real-time analytics",
       },
       {
-        title: "Database Design",
-        description: "(SQL/NoSQL Optimization, Scalable Structures)",
+        title: "LLM Workflow Automation",
+        description: "Prompt engineering, fine-tuning, governance & safety",
       },
     ],
   },
   {
-    title: "DevOps & Cloud Solutions",
+    title: "Platform & Full-Stack Engineering",
     description:
-      "Deploying software shouldn't be a gamble. I automate infrastructure, enforce security, and leverage cloud platforms (AWS/Azure) to keep your app running smoothly—24/7, at any scale.",
+      "Architecting resilient web platforms from concept to scale with Next.js, Node.js, TypeScript, and pragmatic system design.",
     items: [
       {
-        title: "CI/CD Pipelines",
-        description: "(GitHub Actions, Docker, Kubernetes)",
+        title: "System Architecture",
+        description: "Multi-tenant SaaS, loyalty platforms, ERP workflows",
       },
       {
-        title: "Server Management ",
-        description: "(Linux, Nginx, Load Balancing)",
+        title: "Frontend Engineering",
+        description: "Next.js, React, design systems, accessibility",
       },
       {
-        title: "Performance Tuning",
-        description: "(Caching, Compression, Lighthouse 90+ Scores)",
+        title: "Backend Services",
+        description: "Node.js, Express, REST/GraphQL, Prisma, PostgreSQL",
       },
     ],
   },
   {
-    title: "Security & Optimization",
+    title: "Mobile Experiences",
     description:
-      "Slow or hacked apps destroy trust. I harden security (XSS/SQLI protection, OAuth) and optimize bottlenecks so your app stays fast, safe, and scalable as you grow.",
+      "Shipping Flutter apps that stay in sync with web platforms and deliver reliable, native-quality experiences.",
     items: [
       {
-        title: "Code Audits",
-        description: "(Refactoring, Tech Debt Cleanup)",
+        title: "Flutter Engineering",
+        description: "Single codebase delivery for Android & iOS",
       },
       {
-        title: "Pen Testing",
-        description: "(Vulnerability Assessments)",
+        title: "Realtime Sync",
+        description: "Shared databases, offline readiness, background tasks",
       },
       {
-        title: "SEO Tech Stack",
-        description: "(SSR, Metadata, Structured Data)",
+        title: "Product Readiness",
+        description: "CI/CD, QA automation, release governance",
       },
     ],
   },
   {
-    title: "Web & Mobile Apps",
+    title: "Cloud, DevOps & Data",
     description:
-      "A clunky interface can sink even the best ideas. I craft responsive, pixel perfect web and mobile apps (React Native/Flutter) that users love—bridging design and functionality seamlessly.",
+      "Building cloud foundations with IaC, container orchestration, and DevSecOps practices that keep teams shipping fast.",
     items: [
       {
-        title: "Cross-Platform Apps",
-        description: "(Single codebase for iOS/Android/Web)",
+        title: "Cloud Platforms",
+        description: "Alibaba Cloud, AWS, ECR, S3, managed services",
       },
       {
-        title: "PWAs",
-        description: "(Offline mode, Push Notifications)",
+        title: "Observability & Ops",
+        description: "IaC, automated deployments, SLO dashboards",
       },
       {
-        title: "E-Commerce",
-        description: "(Checkout flows, Payment Gateways, Inventory APIs)",
+        title: "Data Engineering",
+        description: "Event pipelines, analytics lakes, secure storage",
       },
     ],
   },
 ];
+
 export const projects = [
   {
     id: 1,
-    name: "Mobile Accessories E-commerce",
+    name: "e-ARIA: Artificial Responsive Intelligence Assistant",
     description:
-      "An online store specializing in phone accessories including cases, chargers, cables, and power banks with MagSafe compatibility.",
-    href: "",
-    image: "/assets/projects/mobile-accessories-store.jpg",
-    bgImage: "/assets/backgrounds/blanket.jpg",
+      "RAG-powered operational assistant with drag-and-drop ingestion, streaming chat, citation protocol, and tunable retrieval controls, deployed on Vercel for ERELA teams.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/apple-tech-store.jpg",
+    bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Node.js" },
-      { id: 4, name: "MongoDB" },
-      { id: 5, name: "Tailwind CSS" },
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "TypeScript" },
+      { id: 3, name: "PostgreSQL" },
+      { id: 4, name: "Google Gemini" },
     ],
   },
   {
     id: 2,
-    name: "Plant Shop E-commerce",
+    name: "ERELA Sales Superapp",
     description:
-      "An online store specializing in rare and decorative plants with a clean, user-friendly interface.",
-    href: "",
-    image: "/assets/projects/plant-shop.jpg",
-    bgImage: "/assets/backgrounds/curtains.jpg",
+      "Flutter + Go sales platform with offline sync, GPS visit tracking, and multi-role analytics for field and HQ stakeholders.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/mobile-accessories-store.jpg",
+    bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Stripe API" },
-      { id: 4, name: "Tailwind CSS" },
+      { id: 1, name: "Flutter" },
+      { id: 2, name: "Go" },
+      { id: 3, name: "PostgreSQL" },
+      { id: 4, name: "AWS" },
     ],
   },
   {
     id: 3,
-    name: "Apple Tech Marketplace",
+    name: "ERELA Customer Loyalty Platform",
     description:
-      "An e-commerce platform for Apple products and accessories with deals and category filtering.",
-    href: "",
-    image: "/assets/projects/apple-tech-store.jpg",
-    bgImage: "/assets/backgrounds/map.jpg",
+      "Next.js + Flutter loyalty ecosystem with OCR-powered onboarding, AWS S3 storage, role-based auth, and shadcn/ui admin panel.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/electronics-store.jpg",
+    bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
-      { id: 1, name: "Blazor" },
-      { id: 2, name: "ASP.NET Core" },
-      { id: 3, name: "SQL Server" },
-      { id: 4, name: "Bootstrap" },
+      { id: 1, name: "Flutter" },
+      { id: 2, name: "Next.js" },
+      { id: 3, name: "Prisma" },
+      { id: 4, name: "AWS S3" },
     ],
   },
   {
     id: 4,
-    name: "Electronics & Gadgets Store",
+    name: "ERELA Event Management Suite",
     description:
-      "A multi-category online shop featuring electronics, home appliances, and gaming gear with special offers.",
-    href: "",
-    image: "/assets/projects/electronics-store.jpg",
-    bgImage: "/assets/backgrounds/poster.jpg",
+      "Events platform with attendance scanning, lucky draw automation, and AWS-backed media storage for nationwide activations.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/game-store.jpg",
+    bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
-      { id: 1, name: "Vue.js" },
-      { id: 2, name: "Laravel" },
-      { id: 3, name: "MySQL" },
-      { id: 4, name: "SCSS" },
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "PostgreSQL" },
+      { id: 3, name: "AWS S3" },
+      { id: 4, name: "Tailwind" },
     ],
   },
   {
     id: 5,
-    name: "Home Decor Marketplace",
+    name: "DINUS e-SARPRAS Mobile",
     description:
-      "A curated collection of designer home decor items, including furniture and artisan vases.",
-    href: "",
-    image: "/assets/projects/home-decor-store.jpg",
+      "Flutter facility management app connected to campus systems for realtime maintenance intake and technician coordination.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/plant-shop.jpg",
     bgImage: "/assets/backgrounds/table.jpg",
     frameworks: [
-      { id: 1, name: "Angular" },
-      { id: 2, name: "Firebase" },
-      { id: 3, name: "GraphQL" },
-      { id: 4, name: "Material UI" },
+      { id: 1, name: "Flutter" },
+      { id: 2, name: "Node.js" },
+      { id: 3, name: "Prisma" },
+      { id: 4, name: "AWS" },
     ],
   },
   {
     id: 6,
-    name: "Digital Game Store",
+    name: "DINUS e-SARPRAS Web Platform",
     description:
-      "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
-    href: "",
-    image: "/assets/projects/game-store.jpg",
+      "Next.js 15 facility management hub with AuthJS, AI chatbot assistant, and automated workflows for campus operations.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/home-decor-store.jpg",
+    bgImage: "/assets/backgrounds/blanket.jpg",
+    frameworks: [
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "Tailwind" },
+      { id: 3, name: "PostgreSQL" },
+      { id: 4, name: "OpenAI" },
+    ],
+  },
+  {
+    id: 7,
+    name: "FIK UDINUS Partnership Manager",
+    description:
+      "Partnership lifecycle dashboard with JWT auth, CRUD workflows, document storage, and data visualizations for faculty agreements.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/mobile-accessories-store.jpg",
+    bgImage: "/assets/backgrounds/map.jpg",
+    frameworks: [
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "Prisma" },
+      { id: 3, name: "PostgreSQL" },
+      { id: 4, name: "Recharts" },
+    ],
+  },
+  {
+    id: 8,
+    name: "Scholar Publication Scraper",
+    description:
+      "Proxy-rotated Google Scholar ingestion pipeline syncing authors and publications into Postgres with resilient Next.js APIs.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/electronics-store.jpg",
+    bgImage: "/assets/backgrounds/poster.jpg",
+    frameworks: [
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "TypeScript" },
+      { id: 3, name: "Prisma" },
+      { id: 4, name: "Proxy Rotation" },
+    ],
+  },
+  {
+    id: 9,
+    name: "Brociz Entertainment Website",
+    description:
+      "Interactive Next.js 13 company profile with modular Tailwind components, GSAP storytelling, and export-ready deployment.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/home-decor-store.jpg",
+    bgImage: "/assets/backgrounds/table.jpg",
+    frameworks: [
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "Tailwind" },
+      { id: 3, name: "GSAP" },
+      { id: 4, name: "TypeScript" },
+    ],
+  },
+  {
+    id: 10,
+    name: "KRS Input System",
+    description:
+      "Role-aware academic registration system with PDF export, built on Next.js 15, NextAuth v5, Prisma, and Tailwind UI.",
+    href: "https://github.com/matthewraymondh/siakad-next15",
+    image: "/assets/projects/mobile-accessories-store.jpg",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
-      { id: 1, name: "Svelte" },
-      { id: 2, name: "Node.js" },
-      { id: 3, name: "MongoDB" },
-      { id: 4, name: "Chakra UI" },
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "NextAuth" },
+      { id: 3, name: "Prisma" },
+      { id: 4, name: "Tailwind" },
+    ],
+  },
+  {
+    id: 11,
+    name: "YOLOv9 Vehicle Analytics",
+    description:
+      "Real-time vehicle detection, tracking, and speed estimation with YOLOv9, DeepSORT, and Streamlit dashboards.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/game-store.jpg",
+    bgImage: "/assets/backgrounds/blanket.jpg",
+    frameworks: [
+      { id: 1, name: "YOLOv9" },
+      { id: 2, name: "DeepSORT" },
+      { id: 3, name: "Streamlit" },
+      { id: 4, name: "Python" },
+    ],
+  },
+  {
+    id: 12,
+    name: "Advanced Intrusion Detection",
+    description:
+      "Snort + pfSense security stack on Xubuntu delivering IDS/IPS capabilities with automated alerting and policy enforcement.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/electronics-store.jpg",
+    bgImage: "/assets/backgrounds/poster.jpg",
+    frameworks: [
+      { id: 1, name: "Snort" },
+      { id: 2, name: "pfSense" },
+      { id: 3, name: "Linux" },
+      { id: 4, name: "IDS/IPS" },
+    ],
+  },
+  {
+    id: 13,
+    name: "Football Analytics Research",
+    description:
+      "SINTA 2 publication using YOLOv5 + Optical Flow for football tracking, team assignment, and speed estimation at 94% mAP.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/plant-shop.jpg",
+    bgImage: "/assets/backgrounds/curtains.jpg",
+    frameworks: [
+      { id: 1, name: "YOLOv5" },
+      { id: 2, name: "Optical Flow" },
+      { id: 3, name: "Python" },
+      { id: 4, name: "OpenCV" },
+    ],
+  },
+  {
+    id: 14,
+    name: "Crop Yield Prediction",
+    description:
+      "CNN-LSTM pipeline forecasting agricultural output from climate and pollution time series with TensorFlow.",
+    href: "https://github.com/matthewraymondh/Crop-Yield-Prediction-using-CNN-LSTM",
+    image: "/assets/projects/apple-tech-store.jpg",
+    bgImage: "/assets/backgrounds/map.jpg",
+    frameworks: [
+      { id: 1, name: "TensorFlow" },
+      { id: 2, name: "CNN" },
+      { id: 3, name: "LSTM" },
+      { id: 4, name: "Python" },
+    ],
+  },
+  {
+    id: 15,
+    name: "Arindo HRIS",
+    description:
+      "Biometric-integrated HRIS automating attendance and payroll for 2,000+ employees on Laravel + MySQL.",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    image: "/assets/projects/home-decor-store.jpg",
+    bgImage: "/assets/backgrounds/table.jpg",
+    frameworks: [
+      { id: 1, name: "Laravel" },
+      { id: 2, name: "MySQL" },
+      { id: 3, name: "Redis" },
+      { id: 4, name: "Docker" },
     ],
   },
 ];
+
 export const socials = [
-  { name: "Instagram", href: "https://www.instagram.com/ali.sanatidev/reels/" },
   {
-    name: "Youtube",
-    href: "https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA",
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
   },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/ali-sanati/" },
-  { name: "GitHub", href: "https://github.com/Ali-Sanati" },
+  {
+    name: "Email",
+    href: "mailto:raymondhartono76@gmail.com",
+  },
+  {
+    name: "Phone",
+    href: "tel:+6287712346050",
+  },
 ];

@@ -5,16 +5,20 @@ import { useMediaQuery } from "react-responsive";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
-  const text = `I help growing brands and startups gain an
-unfair advantage through premium
-results driven webs/apps`;
+  const text = `GenAI systems architect and full-stack lead shaping AI-driven products for web, mobile, and enterprise teams.
+Currently guiding intelligent platforms at PT Erlangga Edi Laboratories.`;
   return (
     <section id="home" className="flex flex-col justify-end min-h-screen">
       <AnimatedHeaderSection
-        subTitle={"404 No Bugs Found"}
-        title={"Ali Sanati"}
+        subTitle={"Supervisor · Web, AI & Mobile Development"}
+        title={"Matthew Raymond Hartono"}
         text={text}
         textColor={"text-black"}
+        primaryCta={{
+          label: "Connect on LinkedIn",
+          href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+        }}
+        secondaryCta={{ label: "View selected work", href: "#work" }}
       />
       <figure
         className="absolute inset-0 -z-50"

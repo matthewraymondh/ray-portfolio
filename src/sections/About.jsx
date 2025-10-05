@@ -5,15 +5,31 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const About = () => {
-  const text = `Passionate about clean architecture
-    I build scalable, high-performance solutions
-    from prototype to production`;
-  const aboutText = `Obsessed with building fast, intuitive apps—from pixel-perfect React UIs to bulletproof serverless backends. Every line of code is a promise: quality that users feel.
-  When I’m not shipping:
-⚡️ Open-sourcing my latest experiment (or hacking on yours)
-🎥 Teaching devs on Twitch/YouTube—because rising tides lift all ships
-🧗 Rock climbing (problem-solving with real stakes)
-🎸 Strumming chords while CI pipelines pass (multitasking at its finest)`;
+  const text = `AI-driven product leadership
+    architecting web, mobile, and intelligence platforms
+    that keep teams shipping at scale`;
+  const aboutText = `I’m Matthew Raymond Hartono—Supervisor of Web, AI, and Mobile Development at PT Erlangga Edi Laboratories. My craft sits at the intersection of GenAI research, pragmatic software delivery, and calm leadership.
+
+Highlights:
+• Published SINTA 2 research on YOLOv5 + Optical Flow with 94% accuracy
+• Leading a customer loyalty platform (Next.js, Flutter, Node.js, Google ML Kit)
+• Delivered an ERP payroll system automating 2,000+ salaries at PT Arindo Garmentama
+• Guiding academic automation for Universitas Dian Nuswantoro with synchronized web + Flutter apps
+
+Certifications & Recognition:
+• Alibaba Cloud Certified Developer & System Operator (ACA)
+• React.js State Management, JavaScript Asynchronous specialist
+• Outstanding Class Student, Codepolitan Reference Letter, Best Department 2025
+
+Languages:
+• Indonesian — Native or Bilingual
+• English — Full Professional
+
+Focus Areas:
+• Retrieval-Augmented Generation, GenAI Safety, Go Services
+• Next.js & Flutter product ecosystems, AWS ECR & cloud-native ops
+
+I thrive on complex briefs, cross-functional collaboration, and translating frontier AI into dependable products.`;
   const imgRef = useRef(null);
   useGSAP(() => {
     gsap.to("#about", {
@@ -47,14 +63,17 @@ const About = () => {
         textColor={"text-white"}
         withScrollTrigger={true}
       />
-      <div className="flex flex-col items-center justify-between gap-16 px-10 pb-16 text-xl font-light tracking-wide lg:flex-row md:text-2xl lg:text-3xl text-white/60">
-        <img
-          ref={imgRef}
-          src="images/man.jpg"
-          alt="man"
-          className="w-md rounded-3xl"
-        />
-        <AnimatedTextLines text={aboutText} className={"w-full"} />
+      <div className="content-container pb-16">
+        <div className="flex flex-col items-center justify-between gap-16 text-lg font-light tracking-wide text-white/70 md:text-xl lg:flex-row lg:text-2xl">
+          <img
+            ref={imgRef}
+            src="/images/man.jpg"
+            alt="Matthew Raymond Hartono portrait"
+            className="max-w-md w-full rounded-3xl object-cover"
+            loading="lazy"
+          />
+          <AnimatedTextLines text={aboutText} className={"w-full max-w-2xl"} />
+        </div>
       </div>
     </section>
   );

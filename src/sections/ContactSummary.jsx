@@ -6,18 +6,18 @@ import gsap from "gsap";
 const ContactSummary = () => {
   const containerRef = useRef(null);
   const items = [
-    "Innovation",
-    "Precision",
-    "Trust",
-    "Collaboration",
-    "Excellence",
+    "GenAI Delivery",
+    "RAG Systems",
+    "Enterprise Automation",
+    "Next.js & Flutter",
+    "Cloud Ops",
   ];
   const items2 = [
-    "contact us",
-    "contact us",
-    "contact us",
-    "contact us",
-    "contact us",
+    "let's build intelligent products",
+    "let's build intelligent products",
+    "let's build intelligent products",
+    "let's build intelligent products",
+    "let's build intelligent products",
   ];
 
   useGSAP(() => {
@@ -39,12 +39,12 @@ const ContactSummary = () => {
       className="flex flex-col items-center justify-between min-h-screen gap-12 mt-16"
     >
       <Marquee items={items} />
-      <div className="overflow-hidden font-light text-center contact-text-responsive">
+      <div className="overflow-hidden font-light text-center contact-text-responsive content-container">
         <p>
-          “ Let’s build a <br />
-          <span className="font-normal">memorable</span> &{" "}
-          <span className="italic">inspiring</span> <br />
-          web application <span className="text-gold">together</span> “
+          “ Let’s architect <br />
+          <span className="font-normal">future-proof</span> &{" "}
+          <span className="italic">human-centered</span> <br />
+          intelligence <span className="text-gold">together</span> “
         </p>
       </div>
       <Marquee

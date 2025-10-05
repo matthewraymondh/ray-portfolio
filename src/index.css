@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
 
 /* Amiamie Regular */
 @font-face {
@@ -87,50 +88,159 @@
   font-style: italic;
   font-display: swap;
 }
-@theme {
+:root {
   --color-primary: #e5e5e0;
-  --color-DarkLava: #393632;
-  --color-SageGray: #8b8b73;
+  --color-ink: #1f1d1a;
+  --color-dark-lava: #393632;
+  --color-sage-gray: #8b8b73;
   --color-gold: #cfa355;
+  --color-soft-rose: #f1d4cf;
   --font-amiamie: "Amiamie", sans-serif;
   --font-amiamie-round: "Amiamie-Round", sans-serif;
-
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   --animate-marquee: marquee 40s infinite linear;
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% - var(--gap)));
-    }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
   }
 }
 
 body {
-  background: #e5e5e0;
-  color: black;
+  background: var(--color-primary);
+  color: var(--color-ink);
   scroll-behavior: smooth;
   overflow-x: hidden;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+.heading-font {
   font-family: var(--font-amiamie);
 }
 
-@utility clip-path {
+p,
+span,
+li,
+div {
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.clip-path {
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
 }
 
-@utility banner-text-responsive {
-  @apply text-[68px] sm:text-[118px] md:text-[126px] lg:text-[152px] leading-9 sm:leading-16 lg:leading-20;
+.banner-text-responsive {
+  font-size: 68px;
+  line-height: 2.25rem;
 }
 
-@utility value-text-responsive {
-  @apply text-2xl md:text-[26px] lg:text-[32px];
+@media (min-width: 640px) {
+  .banner-text-responsive {
+    font-size: 118px;
+    line-height: 4rem;
+  }
 }
 
-@utility marquee-text-responsive {
-  @apply text-[28px] sm:text-[36px] lg:text-[42px];
+@media (min-width: 768px) {
+  .banner-text-responsive {
+    font-size: 126px;
+  }
 }
 
-@utility contact-text-responsive {
-  @apply text-[42px] sm:text-[52px] md:text-[62px] lg:text-[100px];
+@media (min-width: 1024px) {
+  .banner-text-responsive {
+    font-size: 152px;
+    line-height: 5rem;
+  }
+}
+
+.value-text-responsive {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .value-text-responsive {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .value-text-responsive {
+    font-size: 32px;
+  }
+}
+
+.marquee-text-responsive {
+  font-size: 28px;
+}
+
+@media (min-width: 640px) {
+  .marquee-text-responsive {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .marquee-text-responsive {
+    font-size: 42px;
+  }
+}
+
+.contact-text-responsive {
+  font-size: 42px;
+}
+
+@media (min-width: 640px) {
+  .contact-text-responsive {
+    font-size: 52px;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-text-responsive {
+    font-size: 62px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-text-responsive {
+    font-size: 100px;
+  }
+}
+
+.content-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .content-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.subtle-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px -40px rgba(0, 0, 0, 0.45);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
 }
 

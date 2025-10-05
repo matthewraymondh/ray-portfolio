@@ -5,14 +5,14 @@ import { socials } from "../constants";
 import gsap from "gsap";
 
 const Contact = () => {
-  const text = `Got a question, how or project Idea?
-    WE’D love to hear from you and discus further!`;
+  const text = `Ready to deploy an intelligent platform or modernize operations?
+Let’s align on outcomes, architecture, and the teams required to deliver.`;
   const items = [
-    "just imagin, I code",
-    "just imagin, I code",
-    "just imagin, I code",
-    "just imagin, I code",
-    "just imagin, I code",
+    "ship genai products",
+    "ship genai products",
+    "ship genai products",
+    "ship genai products",
+    "ship genai products",
   ];
   useGSAP(() => {
     gsap.from(".social-link", {
@@ -32,43 +32,53 @@ const Contact = () => {
       id="contact"
       className="flex flex-col justify-between min-h-screen bg-black"
     >
-      <div>
+      <div className="content-container">
         <AnimatedHeaderSection
-          subTitle={"You Dream It, I Code it"}
-          title={"Contact"}
+          subTitle={"Supervisor • Web, AI & Mobile"}
+          title={"Let's Collaborate"}
           text={text}
           textColor={"text-white"}
           withScrollTrigger={true}
         />
-        <div className="flex px-10 font-light text-white uppercase lg:text-[32px] text-[26px] leading-none mb-10">
+        <div className="flex font-light text-white uppercase lg:text-[32px] text-[26px] leading-none mb-10">
           <div className="flex flex-col w-full gap-10">
             <div className="social-link">
-              <h2>E-mail</h2>
+              <h2 className="heading-font text-[32px] lg:text-[42px] tracking-tight">
+                E-mail
+              </h2>
               <div className="w-full h-px my-2 bg-white/30" />
-              <p className="text-xl tracking-wider lowercase md:text-2xl lg:text-3xl">
-                JohnDoe@gmail.com
-              </p>
+              <a
+                href="mailto:raymondhartono76@gmail.com"
+                className="text-xl tracking-wider lowercase md:text-2xl lg:text-3xl hover:text-gold transition-colors duration-200"
+              >
+                raymondhartono76@gmail.com
+              </a>
             </div>
             <div className="social-link">
-              <h2>Phone</h2>
+              <h2 className="heading-font text-[32px] lg:text-[42px] tracking-tight">
+                Phone
+              </h2>
               <div className="w-full h-px my-2 bg-white/30" />
-              <p className="text-xl lowercase md:text-2xl lg:text-3xl">
-                +33 7 12 12 32 12
-              </p>
+              <a
+                href="tel:+6287712346050"
+                className="text-xl lowercase md:text-2xl lg:text-3xl hover:text-gold transition-colors duration-200"
+              >
+                +62&nbsp;877&nbsp;1234&nbsp;6050
+              </a>
             </div>
             <div className="social-link">
-              <h2>Social Media</h2>
+              <h2 className="heading-font text-[32px] lg:text-[42px] tracking-tight">
+                Social Media
+              </h2>
               <div className="w-full h-px my-2 bg-white/30" />
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {socials.map((social, index) => (
                   <a
                     key={index}
                     href={social.href}
-                    className="text-xs leading-loose tracking-wides uppercase md:text-sm hover:text-white/80 transition-colors duration-200"
+                    className="focus-ring inline-flex items-center rounded-full border border-white/30 px-4 py-2 text-xs leading-loose tracking-[0.35em] uppercase md:text-sm hover:border-gold hover:text-gold transition-colors duration-200"
                   >
-                    {"{ "}
                     {social.name}
-                    {" }"}
                   </a>
                 ))}
               </div>

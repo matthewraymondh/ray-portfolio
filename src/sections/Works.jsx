@@ -10,9 +10,7 @@ const Works = () => {
   const previewRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(null);
-  const text = `Featured projects that have been meticulously
-    crafted with passion to drive
-    results and impact.`;
+  const text = `Flagship initiatives across healthcare, academia, and manufacturing—each fusing intelligent automation with resilient product delivery.`;
 
   const mouse = useRef({ x: 0, y: 0 });
   const moveX = useRef(null);
@@ -28,7 +26,7 @@ const Works = () => {
       ease: "power3.out",
     });
 
-    gsap.from("#project", {
+    gsap.from(".project-row", {
       y: 100,
       opacity: 0,
       delay: 0.5,
@@ -36,7 +34,7 @@ const Works = () => {
       stagger: 0.3,
       ease: "back.out",
       scrollTrigger: {
-        trigger: "#project",
+        trigger: ".project-row",
       },
     });
   }, []);
@@ -102,21 +100,20 @@ const Works = () => {
   return (
     <section id="work" className="flex flex-col min-h-screen">
       <AnimatedHeaderSection
-        subTitle={"Logic meets Aesthetics, Seamlessly"}
-        title={"Works"}
+  subTitle={"Intelligence engineered into operations"}
+  title={"Selected Impact"}
         text={text}
         textColor={"text-black"}
         withScrollTrigger={true}
       />
       <div
-        className="relative flex flex-col font-light"
+        className="relative flex flex-col font-light content-container"
         onMouseMove={handleMouseMove}
       >
         {projects.map((project, index) => (
           <div
             key={project.id}
-            id="project"
-            className="relative flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
+            className="project-row relative flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
           >
@@ -138,7 +135,7 @@ const Works = () => {
             {/* divider */}
             <div className="w-full h-0.5 bg-black/80" />
             {/* framework */}
-            <div className="flex px-10 text-xs leading-loose uppercase transtion-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12">
+            <div className="flex px-10 text-xs leading-loose uppercase transition-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12">
               {project.frameworks.map((framework) => (
                 <p
                   key={framework.id}
@@ -148,16 +145,30 @@ const Works = () => {
                 </p>
               ))}
             </div>
+            {/* cta */}
+            <div className="flex justify-between px-10 pt-3 text-sm text-black md:text-base md:group-hover:px-12 md:group-hover:text-white">
+              <p className="text-black/70 md:group-hover:text-white/70">
+                {project.description}
+              </p>
+              <a
+                href={project.href || "#contact"}
+                className="hidden md:inline-flex items-center gap-2 text-sm uppercase tracking-[0.35em]"
+                aria-label={`View details for ${project.name}`}
+              >
+                View
+                <Icon icon="lucide:arrow-up-right" />
+              </a>
+            </div>
             {/* mobile preview image */}
             <div className="relative flex items-center justify-center px-10 md:hidden h-[400px]">
               <img
                 src={project.bgImage}
-                alt={`${project.name}-bg-image`}
+                alt={`${project.name} brand background`}
                 className="object-cover w-full h-full rounded-md brightness-50"
               />
               <img
                 src={project.image}
-                alt={`${project.name}-image`}
+                alt={`${project.name} interface preview`}
                 className="absolute bg-center px-14 rounded-xl"
               />
             </div>
@@ -171,7 +182,7 @@ const Works = () => {
           {currentIndex !== null && (
             <img
               src={projects[currentIndex].image}
-              alt="preview"
+              alt={`${projects[currentIndex].name} preview screenshot`}
               className="object-cover w-full h-full"
             />
           )}

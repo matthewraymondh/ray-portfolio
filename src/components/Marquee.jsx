@@ -118,10 +118,20 @@ const Marquee = ({
   }
 
   useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      gsap.set(itemsRef.current, { x: 0 });
+      return;
+    }
+
     const tl = horizontalLoop(itemsRef.current, {
       repeat: -1,
       paddingRight: 30,
       reversed: reverse,
+      speed: 0.7,
     });
 
     Observer.create({

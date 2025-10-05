@@ -98,7 +98,9 @@ const Navbar = () => {
   return (
     <>
       <nav
+        id="primary-navigation"
         ref={navRef}
+        aria-hidden={!isOpen}
         className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
       >
         <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
@@ -122,12 +124,24 @@ const Navbar = () => {
           ref={contactRef}
           className="flex flex-col flex-wrap justify-between gap-8 md:flex-row"
         >
-          <div className="font-light">
-            <p className="tracking-wider text-white/50">E-mail</p>
-            <p className="text-xl tracking-widest lowercase text-pretty">
-              JohnDoe@gmail.com
-            </p>
+              <div className="font-light">
+                <p className="tracking-wider text-white/50">E-mail</p>
+                <a
+                  href="mailto:raymondhartono76@gmail.com"
+                  className="text-xl tracking-widest lowercase text-pretty hover:text-white transition-colors duration-300"
+                >
+                  raymondhartono76@gmail.com
+                </a>
           </div>
+              <div className="font-light">
+                <p className="tracking-wider text-white/50">Phone</p>
+                <a
+                  href="tel:+6287712346050"
+                  className="text-xl tracking-widest lowercase text-pretty hover:text-white transition-colors duration-300"
+                >
+                  +62&nbsp;877&nbsp;1234&nbsp;6050
+                </a>
+              </div>
           <div className="font-light">
             <p className="tracking-wider text-white/50">Social Media</p>
             <div className="flex flex-col flex-wrap md:flex-row gap-x-2">
@@ -146,14 +160,17 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div
-        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
+      <button
+        type="button"
+        aria-controls="primary-navigation"
+        aria-expanded={isOpen}
+        aria-label={isOpen ? "Close navigation" : "Open navigation"}
+        className="focus-ring fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-11 h-11 right-3 top-3 sm:w-12 sm:h-12 sm:right-5 sm:top-5 md:w-16 md:h-16 md:right-10 md:top-10"
         onClick={toggleMenu}
-        style={
-          showBurger
-            ? { clipPath: "circle(50% at 50% 50%)" }
-            : { clipPath: "circle(0% at 50% 50%)" }
-        }
+        style={{
+          transform: showBurger ? "scale(1)" : "scale(0)",
+          pointerEvents: showBurger ? "auto" : "none",
+        }}
       >
         <span
           ref={topLineRef}
@@ -163,7 +180,7 @@ const Navbar = () => {
           ref={bottomLineRef}
           className="block w-8 h-0.5 bg-white rounded-full origin-center"
         ></span>
-      </div>
+      </button>
     </>
   );
 };
