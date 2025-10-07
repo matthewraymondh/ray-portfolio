@@ -11,7 +11,7 @@ Currently guiding intelligent platforms at PT Erlangga Edi Laboratories.`;
     <section id="home" className="flex flex-col justify-end min-h-screen">
       <AnimatedHeaderSection
         subTitle={"Supervisor · Web, AI & Mobile Development"}
-        title={"Matthew Raymond Hartono"}
+        title={"Matthew Raymond"}
         text={text}
         textColor={"text-black"}
         primaryCta={{

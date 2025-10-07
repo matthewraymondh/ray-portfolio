@@ -5,46 +5,46 @@ import ServiceSummary from "./sections/ServiceSummary";
 import Services from "./sections/Services";
 import ReactLenis from "lenis/react";
 import About from "./sections/About";
+import WorkHistory from "./sections/WorkHistory";
 import Works from "./sections/Works";
 import ContactSummary from "./sections/ContactSummary";
 import Contact from "./sections/Contact";
 import { useProgress } from "@react-three/drei";
+import CustomCursor from "./components/CustomCursor";
+import Loader from "./components/Loader";
 
 const App = () => {
   const { progress } = useProgress();
-  const [isReady, setIsReady] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    if (progress === 100) {
-      setIsReady(true);
+    if (progress >= 100) {
+      setHasLoaded(true);
     }
   }, [progress]);
 
   return (
     <ReactLenis root className="relative w-screen min-h-screen overflow-x-auto">
-      {!isReady && (
-        <div className="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-black text-white transition-opacity duration-700 font-light">
-          <p className="mb-4 text-xl tracking-widest animate-pulse">
-            Loading {Math.floor(progress)}%
-          </p>
-          <div className="relative h-1 overflow-hidden rounded w-60 bg-white/20">
-            <div
-              className="absolute top-0 left-0 h-full transition-all duration-300 bg-white"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-        </div>
+      <CustomCursor />
+      {showLoader && (
+        <Loader
+          progress={progress}
+          isComplete={hasLoaded}
+          onComplete={() => setShowLoader(false)}
+        />
       )}
       <div
-        className={`${
-          isReady ? "opacity-100" : "opacity-0"
-        } transition-opacity duration-1000`}
+        className={`transition-opacity duration-1000 ${
+          hasLoaded ? "opacity-100" : "opacity-0"
+        } ${showLoader ? "pointer-events-none" : "pointer-events-auto"}`}
       >
         <Navbar />
         <Hero />
         <ServiceSummary />
         <Services />
         <About />
+        <WorkHistory />
         <Works />
         <ContactSummary />
         <Contact />

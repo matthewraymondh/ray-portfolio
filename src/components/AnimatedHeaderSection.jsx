@@ -80,18 +80,12 @@ const AnimatedHeaderSection = ({
           {(primaryCta || secondaryCta) && (
             <div className="flex flex-wrap justify-end gap-4 mt-10">
               {primaryCta && (
-                <a
-                  href={primaryCta.href}
-                  className={primaryCtaClasses}
-                >
+                <a href={primaryCta.href} className={primaryCtaClasses}>
                   {primaryCta.label}
                 </a>
               )}
               {secondaryCta && (
-                <a
-                  href={secondaryCta.href}
-                  className={secondaryCtaClasses}
-                >
+                <a href={secondaryCta.href} className={secondaryCtaClasses}>
                   {secondaryCta.label}
                 </a>
               )}

@@ -321,3 +321,62 @@ export const socials = [
     href: "tel:+6287712346050",
   },
 ];
+
+export const workHistory = [
+  {
+    company: "PT Erlangga Edi Laboratories (ERELA)",
+    role: "Supervisor · Web, AI & Mobile Development",
+    period: "Sep 2025 – Present",
+    location: "Semarang, Indonesia",
+    summary:
+      "Leading cross-functional product squads delivering GenAI assistants, omnichannel commerce, and operational intelligence across the enterprise.",
+    achievements: [
+      "Launched e-ARIA, a RAG assistant with governed ingestion and streaming chat adopted by compliance, marketing, and logistics teams.",
+      "Scaled the ERELA Sales Superapp (Flutter + Go) with offline-first sync, GPS visit intelligence, and analytics for 200+ field reps.",
+      "Stood up GenAI readiness practices—evaluation, monitoring, and cost controls—unlocking safe enterprise rollout across 20+ teams.",
+    ],
+    stack: ["Next.js", "Flutter", "Go", "RAG", "PostgreSQL", "GCP"],
+  },
+  {
+    company: "Universitas Dian Nuswantoro (UDINUS)",
+    role: "Lead Full-Stack & Applied AI Developer",
+    period: "Jan 2025 – Aug 2025",
+    location: "Semarang, Indonesia",
+    summary:
+      "Built campus-wide digital infrastructure and research tooling spanning facilities, partnerships, and scholar analytics.",
+    achievements: [
+      "Delivered DINUS e-SARPRAS web + mobile platforms with AI assistant guidance, automating facility maintenance workflows.",
+      "Engineered the Scholar Publication Scraper with proxy rotation, resilient sync, and analytics dashboards for faculty metrics.",
+      "Created a partnership management portal with JWT-secured CRUD, document storage, and visualization of agreement health.",
+    ],
+    stack: ["Next.js", "AuthJS", "Prisma", "AWS", "OpenAI", "Flutter"],
+  },
+  {
+    company: "Independent & Agency Collaborations",
+    role: "Full-Stack & AI Consultant",
+    period: "Feb 2024 – Present",
+    location: "Remote",
+    summary:
+      "Partnering with founders and creative studios to ship data-rich experiences and AI-enabled automation.",
+    achievements: [
+      "Designed the Brociz Entertainment company site with GSAP storytelling, modular Tailwind components, and static export pipelines.",
+      "Prototyped ML systems including YOLOv9 vehicle analytics and CNN-LSTM crop forecasting with production-ready dashboards.",
+      "Advised on GenAI product discovery—prompt orchestration, evaluation, and observability for RAG experiments.",
+    ],
+    stack: ["Next.js", "TypeScript", "Tailwind", "GSAP", "TensorFlow", "YOLO"],
+  },
+  {
+    company: "PT. Arindo Garmentama",
+    role: "Software Engineer · HRIS",
+    period: "Jul 2023 – Jan 2024",
+    location: "Semarang, Indonesia",
+    summary:
+      "Automated attendance and payroll for a 2,000+ workforce by modernizing HRIS infrastructure and biometric integrations.",
+    achievements: [
+      "Integrated Fingerspot biometric devices into a Laravel + MySQL HRIS with reliable sync and reconciliation routines.",
+      "Implemented payroll automation pipelines reducing manual processing time by 60% per cycle.",
+      "Delivered reporting dashboards and alerting, improving HR operational visibility and audit readiness.",
+    ],
+    stack: ["Laravel", "MySQL", "Redis", "Docker", "AWS"],
+  },
+];

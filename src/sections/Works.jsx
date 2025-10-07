@@ -100,8 +100,8 @@ const Works = () => {
   return (
     <section id="work" className="flex flex-col min-h-screen">
       <AnimatedHeaderSection
-  subTitle={"Intelligence engineered into operations"}
-  title={"Selected Impact"}
+        subTitle={"Intelligence engineered into operations"}
+        title={"Selected Impact"}
         text={text}
         textColor={"text-black"}
         withScrollTrigger={true}

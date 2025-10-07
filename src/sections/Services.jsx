@@ -123,7 +123,9 @@ From RAG research to enterprise rollouts, every layer is production-ready.`;
             <div className="flex items-center gap-3 pb-6 text-xs uppercase tracking-[0.6em] text-white/50">
               <span>0{index + 1}</span>
               <span className="h-px flex-1 bg-white/15" aria-hidden="true" />
-              <span className="tracking-[0.35em] text-white/70">{service.title}</span>
+              <span className="tracking-[0.35em] text-white/70">
+                {service.title}
+              </span>
             </div>
             <div className="py-12 md:py-20">
               <div className="service-card relative overflow-hidden rounded-[32px] border border-white/15 bg-black/80 backdrop-blur-lg shadow-[0_40px_80px_-60px_rgba(0,0,0,0.9)]">

@@ -35,7 +35,7 @@ Let’s align on outcomes, architecture, and the teams required to deliver.`;
       <div className="content-container">
         <AnimatedHeaderSection
           subTitle={"Supervisor • Web, AI & Mobile"}
-          title={"Let's Collaborate"}
+          title={"Let's Collab"}
           text={text}
           textColor={"text-white"}
           withScrollTrigger={true}

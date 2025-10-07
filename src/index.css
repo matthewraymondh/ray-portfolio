@@ -111,6 +111,27 @@
   }
 }
 
+@keyframes loaderPulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes loaderSheen {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(130%);
+  }
+}
+
 body {
   background: var(--color-primary);
   color: var(--color-ink);
@@ -139,13 +160,13 @@ div {
 
 .banner-text-responsive {
   font-size: 68px;
-  line-height: 2.25rem;
+  line-height: 1.05;
 }
 
 @media (min-width: 640px) {
   .banner-text-responsive {
     font-size: 118px;
-    line-height: 4rem;
+    line-height: 1.05;
   }
 }
 
@@ -158,7 +179,7 @@ div {
 @media (min-width: 1024px) {
   .banner-text-responsive {
     font-size: 152px;
-    line-height: 5rem;
+    line-height: 1.05;
   }
 }
 
@@ -244,3 +265,20 @@ div {
   outline-offset: 4px;
 }
 
+body.has-custom-cursor,
+body.has-custom-cursor * {
+  cursor: none !important;
+}
+
+body.has-custom-cursor input,
+body.has-custom-cursor textarea,
+body.has-custom-cursor select,
+body.has-custom-cursor [contenteditable="true"] {
+  cursor: text !important;
+}
+
+.custom-cursor,
+.custom-cursor-dot {
+  pointer-events: none;
+  will-change: transform, opacity;
+}
