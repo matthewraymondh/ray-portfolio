@@ -8,7 +8,10 @@ const Hero = () => {
   const text = `GenAI systems architect and full-stack lead shaping AI-driven products for web, mobile, and enterprise teams.
 Currently guiding intelligent platforms at PT Erlangga Edi Laboratories.`;
   return (
-    <section id="home" className="flex flex-col justify-end min-h-screen">
+    <section
+      id="home"
+      className="relative flex flex-col justify-end min-h-screen overflow-hidden"
+    >
       <AnimatedHeaderSection
         subTitle={"Supervisor · Web, AI & Mobile Development"}
         title={"Matthew Raymond"}
@@ -20,10 +23,7 @@ Currently guiding intelligent platforms at PT Erlangga Edi Laboratories.`;
         }}
         secondaryCta={{ label: "View selected work", href: "#work" }}
       />
-      <figure
-        className="absolute inset-0 -z-50"
-        style={{ width: "100vw", height: "100vh" }}
-      >
+      <figure className="absolute inset-0 -z-50">
         <Canvas
           shadows
           camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}

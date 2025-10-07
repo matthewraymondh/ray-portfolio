@@ -62,7 +62,7 @@ const AnimatedHeaderSection = ({
             {subTitle}
           </p>
           <h1
-            className={`flex flex-col gap-10 uppercase banner-text-responsive sm:gap-16 md:block ${textColor}`}
+            className={`flex flex-col gap-6 uppercase banner-text-responsive sm:gap-10 md:block md:gap-16 ${textColor}`}
           >
             {titleParts.map((part, index) => (
               <span key={index}>{part} </span>
@@ -75,7 +75,7 @@ const AnimatedHeaderSection = ({
         <div className="content-container py-12 sm:py-16">
           <AnimatedTextLines
             text={text}
-            className={`font-light value-text-responsive text-right ${textColor}`}
+            className={`font-light value-text-responsive text-left md:text-right ${textColor}`}
           />
           {(primaryCta || secondaryCta) && (
             <div className="flex flex-wrap justify-end gap-4 mt-10">

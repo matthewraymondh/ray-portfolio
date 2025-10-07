@@ -109,7 +109,7 @@ From RAG research to enterprise rollouts, every layer is production-ready.`;
           <div
             ref={(el) => (serviceRefs.current[index] = el)}
             key={index}
-            className="sticky text-white border-t border-white/15"
+            className="relative md:sticky text-white border-t border-white/15"
             style={
               isDesktop
                 ? {
@@ -117,7 +117,7 @@ From RAG research to enterprise rollouts, every layer is production-ready.`;
                     marginBottom: `${(servicesData.length - index - 1) * 5}rem`,
                     zIndex: servicesData.length - index,
                   }
-                : { top: 0, zIndex: servicesData.length - index }
+                : undefined
             }
           >
             <div className="flex items-center gap-3 pb-6 text-xs uppercase tracking-[0.6em] text-white/50">

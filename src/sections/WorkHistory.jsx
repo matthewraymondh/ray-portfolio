@@ -78,8 +78,8 @@ const WorkHistory = () => {
       />
       <div className="relative pb-24 md:pb-32">
         <div className="content-container">
-          <div ref={sectionRef} className="relative pl-20 sm:pl-24 md:pl-32">
-            <div className="pointer-events-none absolute inset-y-0 left-10 sm:left-12 md:left-16 flex justify-center">
+          <div ref={sectionRef} className="relative pl-6 sm:pl-12 md:pl-32">
+            <div className="pointer-events-none absolute inset-y-0 left-6 sm:left-10 md:left-16 hidden md:flex justify-center">
               <span className="block h-full w-px bg-black/15" />
               <span
                 ref={timelineProgressRef}
@@ -93,21 +93,22 @@ const WorkHistory = () => {
                   ref={(el) => {
                     cardsRef.current[index] = el;
                   }}
-                  className="relative overflow-hidden rounded-[32px] border border-black/10 bg-white/80 backdrop-blur-2xl shadow-[0_40px_90px_-60px_rgba(0,0,0,0.8)] before:absolute before:top-12 before:left-[-2.5rem] before:h-px before:w-[2.5rem] before:bg-black/15 before:opacity-60 before:transition-colors before:duration-500 before:content-[''] sm:before:left-[-2.75rem] sm:before:w-[2.75rem] md:before:left-[-4rem] md:before:w-[4rem] hover:before:bg-black/40"
+                  className="group relative overflow-hidden rounded-[32px] border border-black/10 bg-white/80 backdrop-blur-2xl shadow-[0_40px_90px_-60px_rgba(0,0,0,0.8)]"
                 >
-                  <span className="absolute left-[-2.5rem] top-12 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-black bg-white shadow-[0_0_0_6px_rgba(0,0,0,0.05)] sm:left-[-2.75rem] md:left-[-4rem]" />
-                  <div className="grid gap-8 p-8 md:p-12 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1.8fr)] md:items-start">
-                    <div className="space-y-5">
+                  <span className="hidden md:block absolute left-[-4rem] top-12 h-px w-[4rem] bg-black/15 opacity-60 transition-colors duration-500 group-hover:bg-black/40" />
+                  <span className="hidden md:block absolute left-[-4rem] top-12 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-black bg-white shadow-[0_0_0_6px_rgba(0,0,0,0.05)]" />
+                  <div className="grid gap-8 p-6 sm:p-8 md:p-12 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1.8fr)] md:items-start">
+                    <div className="space-y-4 sm:space-y-5">
                       <p className="text-xs uppercase tracking-[0.4em] text-black/50">
                         {role.period}
                       </p>
-                      <h2 className="text-3xl md:text-4xl uppercase tracking-tight heading-font">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight heading-font">
                         {role.role}
                       </h2>
-                      <p className="text-lg uppercase tracking-[0.35em] text-black/60">
+                      <p className="text-base sm:text-lg uppercase tracking-[0.35em] text-black/60">
                         {role.company}
                       </p>
-                      <p className="text-sm uppercase tracking-[0.35em] text-black/40">
+                      <p className="text-xs sm:text-sm uppercase tracking-[0.35em] text-black/40">
                         {role.location}
                       </p>
                       <p className="text-base md:text-lg leading-relaxed text-black/70 max-w-xl">

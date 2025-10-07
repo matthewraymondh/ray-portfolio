@@ -126,7 +126,7 @@ const Works = () => {
             />
 
             {/* title */}
-            <div className="flex justify-between px-10 text-black transition-all duration-500 md:group-hover:px-12 md:group-hover:text-white">
+            <div className="flex justify-between px-6 text-black transition-all duration-500 md:px-10 md:group-hover:px-12 md:group-hover:text-white">
               <h2 className="lg:text-[32px] text-[26px] leading-none">
                 {project.name}
               </h2>
@@ -135,7 +135,7 @@ const Works = () => {
             {/* divider */}
             <div className="w-full h-0.5 bg-black/80" />
             {/* framework */}
-            <div className="flex px-10 text-xs leading-loose uppercase transition-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12">
+            <div className="flex px-6 text-xs leading-loose uppercase transition-all duration-500 md:px-10 md:text-sm gap-x-5 md:group-hover:px-12">
               {project.frameworks.map((framework) => (
                 <p
                   key={framework.id}
@@ -146,7 +146,7 @@ const Works = () => {
               ))}
             </div>
             {/* cta */}
-            <div className="flex justify-between px-10 pt-3 text-sm text-black md:text-base md:group-hover:px-12 md:group-hover:text-white">
+            <div className="flex justify-between px-6 pt-3 text-sm text-black md:px-10 md:text-base md:group-hover:px-12 md:group-hover:text-white">
               <p className="text-black/70 md:group-hover:text-white/70">
                 {project.description}
               </p>
@@ -160,7 +160,7 @@ const Works = () => {
               </a>
             </div>
             {/* mobile preview image */}
-            <div className="relative flex items-center justify-center px-10 md:hidden h-[400px]">
+            <div className="relative flex items-center justify-center px-6 md:hidden h-[400px]">
               <img
                 src={project.bgImage}
                 alt={`${project.name} brand background`}
