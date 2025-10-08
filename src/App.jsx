@@ -7,6 +7,7 @@ import ReactLenis from "lenis/react";
 import About from "./sections/About";
 import WorkHistory from "./sections/WorkHistory";
 import Works from "./sections/Works";
+import GithubPulse from "./sections/GithubPulse";
 import ContactSummary from "./sections/ContactSummary";
 import Contact from "./sections/Contact";
 import { useProgress } from "@react-three/drei";
@@ -46,6 +47,7 @@ const App = () => {
         <About />
         <WorkHistory />
         <Works />
+        <GithubPulse />
         <ContactSummary />
         <Contact />
       </div>

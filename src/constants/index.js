@@ -85,8 +85,8 @@ export const projects = [
     name: "e-ARIA: Artificial Responsive Intelligence Assistant",
     description:
       "RAG-powered operational assistant with drag-and-drop ingestion, streaming chat, citation protocol, and tunable retrieval controls, deployed on Vercel for ERELA teams.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/apple-tech-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/earia.jpeg",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
@@ -100,8 +100,8 @@ export const projects = [
     name: "ERELA Sales Superapp",
     description:
       "Flutter + Go sales platform with offline sync, GPS visit tracking, and multi-role analytics for field and HQ stakeholders.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/mobile-accessories-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/salessuperapp.jpeg",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "Flutter" },
@@ -115,8 +115,8 @@ export const projects = [
     name: "ERELA Customer Loyalty Platform",
     description:
       "Next.js + Flutter loyalty ecosystem with OCR-powered onboarding, AWS S3 storage, role-based auth, and shadcn/ui admin panel.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/electronics-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/erelacustomer.jpeg",
     bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
       { id: 1, name: "Flutter" },
@@ -130,8 +130,8 @@ export const projects = [
     name: "ERELA Event Management Suite",
     description:
       "Events platform with attendance scanning, lucky draw automation, and AWS-backed media storage for nationwide activations.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/game-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/eventmanagement.jpeg",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
@@ -145,8 +145,8 @@ export const projects = [
     name: "DINUS e-SARPRAS Mobile",
     description:
       "Flutter facility management app connected to campus systems for realtime maintenance intake and technician coordination.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/plant-shop.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/dinusesarprasflutter.jpeg",
     bgImage: "/assets/backgrounds/table.jpg",
     frameworks: [
       { id: 1, name: "Flutter" },
@@ -160,8 +160,8 @@ export const projects = [
     name: "DINUS e-SARPRAS Web Platform",
     description:
       "Next.js 15 facility management hub with AuthJS, AI chatbot assistant, and automated workflows for campus operations.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/home-decor-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/dinusesarpras.jpeg",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
@@ -175,8 +175,8 @@ export const projects = [
     name: "FIK UDINUS Partnership Manager",
     description:
       "Partnership lifecycle dashboard with JWT auth, CRUD workflows, document storage, and data visualizations for faculty agreements.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/mobile-accessories-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/partnership.jpeg",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
@@ -190,8 +190,8 @@ export const projects = [
     name: "Scholar Publication Scraper",
     description:
       "Proxy-rotated Google Scholar ingestion pipeline syncing authors and publications into Postgres with resilient Next.js APIs.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/electronics-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/partnership.jpeg",
     bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
@@ -205,8 +205,8 @@ export const projects = [
     name: "Brociz Entertainment Website",
     description:
       "Interactive Next.js 13 company profile with modular Tailwind components, GSAP storytelling, and export-ready deployment.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/home-decor-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/brociz.jpeg",
     bgImage: "/assets/backgrounds/table.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
@@ -221,7 +221,7 @@ export const projects = [
     description:
       "Role-aware academic registration system with PDF export, built on Next.js 15, NextAuth v5, Prisma, and Tailwind UI.",
     href: "https://github.com/matthewraymondh/siakad-next15",
-    image: "/assets/projects/mobile-accessories-store.jpg",
+    image: "/assets/projects/krsinput.jpeg",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
@@ -235,8 +235,8 @@ export const projects = [
     name: "YOLOv9 Vehicle Analytics",
     description:
       "Real-time vehicle detection, tracking, and speed estimation with YOLOv9, DeepSORT, and Streamlit dashboards.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/game-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/yolov9.jpeg",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "YOLOv9" },
@@ -250,8 +250,8 @@ export const projects = [
     name: "Advanced Intrusion Detection",
     description:
       "Snort + pfSense security stack on Xubuntu delivering IDS/IPS capabilities with automated alerting and policy enforcement.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/electronics-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    // image: "/assets/projects/electronics-store.jpg",
     bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
       { id: 1, name: "Snort" },
@@ -265,8 +265,8 @@ export const projects = [
     name: "Football Analytics Research",
     description:
       "SINTA 2 publication using YOLOv5 + Optical Flow for football tracking, team assignment, and speed estimation at 94% mAP.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/plant-shop.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/footbal.jpeg",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "YOLOv5" },
@@ -281,7 +281,7 @@ export const projects = [
     description:
       "CNN-LSTM pipeline forecasting agricultural output from climate and pollution time series with TensorFlow.",
     href: "https://github.com/matthewraymondh/Crop-Yield-Prediction-using-CNN-LSTM",
-    image: "/assets/projects/apple-tech-store.jpg",
+    // image: "/assets/projects/apple-tech-store.jpg",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
       { id: 1, name: "TensorFlow" },
@@ -295,8 +295,8 @@ export const projects = [
     name: "Arindo HRIS",
     description:
       "Biometric-integrated HRIS automating attendance and payroll for 2,000+ employees on Laravel + MySQL.",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
-    image: "/assets/projects/home-decor-store.jpg",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
+    image: "/assets/projects/arindohr.jpeg",
     bgImage: "/assets/backgrounds/table.jpg",
     frameworks: [
       { id: 1, name: "Laravel" },
@@ -310,7 +310,7 @@ export const projects = [
 export const socials = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+    href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176/",
   },
   {
     name: "Email",

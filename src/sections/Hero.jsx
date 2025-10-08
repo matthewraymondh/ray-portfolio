@@ -19,7 +19,7 @@ Currently guiding intelligent platforms at PT Erlangga Edi Laboratories.`;
         textColor={"text-black"}
         primaryCta={{
           label: "Connect on LinkedIn",
-          href: "https://www.linkedin.com/in/matthewraymond-hartono-915310176",
+          href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176",
         }}
         secondaryCta={{ label: "View selected work", href: "#work" }}
       />
