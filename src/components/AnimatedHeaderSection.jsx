@@ -14,6 +14,7 @@ const AnimatedHeaderSection = ({
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
+  const titleCharsRef = useRef([]);
   const shouldSplitTitle = title.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
   const isLightText = textColor?.includes("white");
@@ -48,6 +49,22 @@ const AnimatedHeaderSection = ({
       },
       "<+0.2"
     );
+
+    const chars = titleCharsRef.current.filter(Boolean);
+    if (chars.length > 0) {
+      tl.from(
+        chars,
+        {
+          opacity: 0,
+          y: 60,
+          rotateX: -90,
+          stagger: 0.03,
+          duration: 0.8,
+          ease: "back.out(1.4)",
+        },
+        "<+0.4"
+      );
+    }
   }, []);
   return (
     <div ref={contextRef}>
@@ -63,9 +80,27 @@ const AnimatedHeaderSection = ({
           </p>
           <h1
             className={`flex flex-col gap-6 uppercase banner-text-responsive sm:gap-10 md:block md:gap-16 ${textColor}`}
+            style={{ perspective: "1200px" }}
           >
-            {titleParts.map((part, index) => (
-              <span key={index}>{part} </span>
+            {titleParts.map((part, partIndex) => (
+              <span key={partIndex} className="inline-block">
+                {part.split("").map((char, charIndex) => {
+                  const globalIndex =
+                    titleParts.slice(0, partIndex).join("").length + charIndex;
+                  return (
+                    <span
+                      key={`${partIndex}-${charIndex}`}
+                      ref={(el) => {
+                        titleCharsRef.current[globalIndex] = el;
+                      }}
+                      className="inline-block"
+                      style={{ transformOrigin: "50% 100%" }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  );
+                })}{" "}
+              </span>
             ))}
           </h1>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -7,70 +7,84 @@ const clampProgress = (value) => {
   return Math.min(100, Math.max(0, value));
 };
 
+const statusCopy = [
+  { threshold: 20, label: "Calibrating surfaces" },
+  { threshold: 45, label: "Bootstrapping pipelines" },
+  { threshold: 70, label: "Syncing assets" },
+  { threshold: 95, label: "Priming experience" },
+  { threshold: 100, label: "Ready" },
+];
+
+const stylizeProgress = (value) => {
+  const clamped = clampProgress(value);
+  if (clamped <= 50) {
+    return gsap.utils.interpolate(0, 42, clamped / 50);
+  }
+  if (clamped <= 65) {
+    const holdProgress = (clamped - 50) / 15; // 0 -> 1
+    return 42 + Math.pow(holdProgress, 0.65) * 5; // ease-in hold to ~47%
+  }
+  return 47 + ((clamped - 65) / 35) * 53; // accelerate to 100%
+};
+
 const Loader = ({ progress = 0, isComplete = false, onComplete }) => {
   const containerRef = useRef(null);
-  const frameRef = useRef(null);
-  const barRef = useRef(null);
-  const highlightRef = useRef(null);
-  const sweepRef = useRef(null);
   const counter = useRef({ value: 0 });
+  const contentRef = useRef(null);
   const hasExitStarted = useRef(false);
   const [displayProgress, setDisplayProgress] = useState(0);
   const [counterComplete, setCounterComplete] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(
+    typeof window !== "undefined" ? window.innerHeight : 0
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handleResize = () => setViewportHeight(window.innerHeight);
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      if (sweepRef.current) {
-        gsap.set(sweepRef.current, { y: "100%" });
-      }
-      if (highlightRef.current) {
-        gsap.set(highlightRef.current, { scale: 0.85, opacity: 0.7 });
-      }
-      gsap.from(frameRef.current, {
+      gsap.from(containerRef.current, {
         autoAlpha: 0,
-        y: 56,
-        scale: 0.96,
-        duration: 1.1,
-        ease: "power3.out",
-      });
-      if (highlightRef.current) {
-        gsap.to(highlightRef.current, {
-          scale: 1,
-          opacity: 0.9,
-          duration: 1.4,
-          ease: "power3.out",
-        });
-      }
-      gsap.from(".loader-ring", {
-        scale: 0.92,
-        autoAlpha: 0,
-        duration: 1,
+        duration: 0.6,
         ease: "power2.out",
-        stagger: 0.1,
       });
-      gsap.from(".loader-accent", {
-        width: 0,
+      gsap.from(".loader-progress-wheel", {
+        scale: 0.9,
+        autoAlpha: 0,
         duration: 0.9,
         ease: "power3.out",
-        stagger: 0.12,
+      });
+      gsap.from(".loader-bars div", {
+        width: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.1,
         delay: 0.2,
       });
     }, containerRef);
+
     return () => ctx.revert();
   }, []);
 
   useEffect(() => {
     const target = clampProgress(progress);
+
     if (target < 100 && counterComplete) {
       setCounterComplete(false);
       hasExitStarted.current = false;
     }
 
     const currentValue = counter.current.value;
+    const progressDelta = Math.abs(target - currentValue);
+
     const tweenDuration = gsap.utils.clamp(
-      1,
-      4,
-      Math.max(1.2, Math.abs(target - currentValue) * 0.06)
+      0.8,
+      2.4,
+      0.8 + progressDelta * 0.03
     );
 
     gsap.killTweensOf(counter.current);
@@ -88,181 +102,172 @@ const Loader = ({ progress = 0, isComplete = false, onComplete }) => {
         }
       },
     });
-
-    if (barRef.current) {
-      gsap.killTweensOf(barRef.current);
-      gsap.to(barRef.current, {
-        width: `${target}%`,
-        duration: tweenDuration,
-        ease: "power2.inOut",
-      });
-    }
   }, [progress, counterComplete]);
+
+  const stylizedProgressValue = useMemo(
+    () => stylizeProgress(displayProgress),
+    [displayProgress]
+  );
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const bottomInset = Math.max(0, stylizedProgressValue);
+    containerRef.current.style.clipPath = `inset(0% 0% ${bottomInset}% 0%)`;
+    if (contentRef.current && viewportHeight) {
+      const targetY = gsap.utils.mapRange(
+        0,
+        100,
+        0,
+        -viewportHeight * 0.92,
+        stylizedProgressValue
+      );
+
+      gsap.set(contentRef.current, { y: targetY });
+    }
+  }, [stylizedProgressValue, viewportHeight]);
 
   useEffect(() => {
     if (!isComplete || !counterComplete || hasExitStarted.current) return;
 
     hasExitStarted.current = true;
     const tl = gsap.timeline({
-      delay: 0.25,
+      delay: 0.2,
       onComplete: () => {
         onComplete?.();
       },
     });
 
-    if (barRef.current) {
-      tl.to(barRef.current, {
-        width: "110%",
-        duration: 0.7,
-        ease: "power2.inOut",
-      });
-    }
-
-    const sheen = containerRef.current?.querySelector(".loader-sheen");
-    if (sheen) {
-      tl.to(
-        sheen,
-        {
-          x: "180%",
-          duration: 0.7,
-          ease: "power2.inOut",
-        },
-        "<"
-      );
-    }
-
-    if (highlightRef.current) {
-      tl.to(
-        highlightRef.current,
-        {
-          scale: 1.25,
-          opacity: 1,
-          duration: 0.7,
-          ease: "power2.out",
-        },
-        "<"
-      );
-    }
-
-    if (frameRef.current) {
-      tl.to(
-        frameRef.current,
-        {
-          scale: 1.03,
-          y: -12,
-          duration: 0.45,
-          ease: "power2.out",
-        },
-        "<+0.05"
-      );
-    }
-
-    if (sweepRef.current) {
-      tl.to(
-        sweepRef.current,
-        {
-          y: "-12%",
-          duration: 0.65,
-          ease: "power3.inOut",
-        },
-        "<"
-      );
-    }
-
-    if (frameRef.current) {
-      tl.to(
-        frameRef.current,
-        {
-          y: -48,
-          autoAlpha: 0,
-          scale: 0.92,
-          duration: 0.6,
-          ease: "power3.in",
-        },
-        "<+0.2"
-      );
-    }
-
-    if (sweepRef.current) {
-      tl.to(
-        sweepRef.current,
-        {
-          y: "-140%",
-          duration: 0.8,
-          ease: "power3.inOut",
-        },
-        "<+0.1"
-      );
-    }
-
-    tl.to(
-      containerRef.current,
-      {
-        autoAlpha: 0,
-        duration: 0.65,
-        ease: "power2.inOut",
-      },
-      "<+0.05"
-    );
+    tl.to(containerRef.current, {
+      autoAlpha: 0,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+    tl.set(containerRef.current, { display: "none" });
 
     return () => tl.kill();
   }, [isComplete, counterComplete, onComplete]);
 
+  const statusLabel = useMemo(() => {
+    const found = statusCopy.find(
+      ({ threshold }) => displayProgress < threshold
+    );
+    return found ? found.label : "Ready";
+  }, [displayProgress]);
+
+  const todayLabel = useMemo(
+    () =>
+      new Date().toLocaleDateString(undefined, {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      }),
+    []
+  );
+
+  const outerRadius = 140;
+  const outerCircumference = 2 * Math.PI * outerRadius;
+  const outerDashoffset = outerCircumference * (1 - displayProgress / 100);
+
+  const innerRadius = 85;
+  const innerCircumference = 2 * Math.PI * innerRadius;
+  const innerDashoffset = innerCircumference * (1 - displayProgress / 100);
+
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[999] flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-[#1f1d1a] to-[#2d2924] text-white"
+      className="pointer-events-none fixed inset-0 z-[999] flex items-stretch justify-center overflow-hidden text-white"
+      style={{ clipPath: "inset(0% 0% 0% 0%)" }}
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          ref={highlightRef}
-          className="absolute left-1/2 top-1/3 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(207,163,85,0.45),transparent_70%)] blur-[90px] opacity-80 animate-[loaderPulse_6s_ease-in-out_infinite]"
-        />
-        <div className="loader-ring absolute left-1/2 top-1/3 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10 opacity-40 animate-[spin_20s_linear_infinite]" />
-        <div className="loader-ring absolute bottom-12 left-16 h-24 w-24 rounded-full border border-white/10 opacity-20 animate-[spin_26s_linear_infinite]" />
-        <div className="loader-ring absolute right-16 top-16 h-32 w-32 rounded-full border border-white/10 opacity-20 animate-[spin_24s_linear_infinite]" />
-      </div>
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div
-          ref={sweepRef}
-          className="absolute inset-0 bg-[linear-gradient(160deg,rgba(207,163,85,0.35)_0%,rgba(255,255,255,0.4)_35%,rgba(27,26,24,0)_70%)] mix-blend-soft-light"
-        />
-      </div>
+      <div className="absolute inset-0 bg-[#0b0b0b]" />
       <div
-        ref={frameRef}
-        className="relative z-10 flex w-full max-w-3xl flex-col gap-10 rounded-[40px] border border-white/10 bg-white/5 p-8 backdrop-blur-2xl md:p-12"
+        ref={contentRef}
+        className="relative z-10 flex h-full w-full flex-col justify-between px-6 pb-10 pt-16 sm:px-10"
       >
-        <div className="flex flex-wrap items-center justify-between gap-6">
-          <div className="flex items-center gap-4 uppercase tracking-[0.35em] text-xs text-white/40">
-            <span className="loader-accent block h-px w-16 bg-white/30" />
-            <span>Matthew Raymond Hartono</span>
-          </div>
-          <div className="flex items-end gap-3">
-            <span className="text-6xl font-light leading-none md:text-7xl">
-              {displayProgress.toString().padStart(2, "0")}
-            </span>
-            <span className="mb-1 text-sm uppercase tracking-[0.35em] text-white/40">
-              %
-            </span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.35em] text-white/50 sm:text-xs">
-            <span>Calibrating intelligent surfaces</span>
-            <span>Initializing systems</span>
-          </div>
-          <div className="relative h-3 w-full overflow-hidden rounded-full bg-white/10">
-            <div
-              ref={barRef}
-              className="relative h-full w-0 rounded-full bg-gradient-to-r from-white via-[#f5e7d4] to-[#cfa355]"
+        <div className="loader-progress-wheel pointer-events-none absolute right-[6vw] top-1/2 hidden -translate-y-1/2 lg:block">
+          <div className="relative h-[360px] w-[360px]">
+            <svg
+              viewBox="0 0 360 360"
+              className="h-full w-full rotate-[-90deg]"
+              aria-hidden="true"
             >
-              <span className="loader-sheen pointer-events-none absolute inset-y-0 w-1/3 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-80 mix-blend-screen animate-[loaderSheen_2.6s_ease-in-out_infinite]" />
+              <circle
+                cx="180"
+                cy="180"
+                r={outerRadius}
+                stroke="#2f2f2f"
+                strokeWidth="24"
+                fill="none"
+              />
+              <circle
+                cx="180"
+                cy="180"
+                r={outerRadius}
+                stroke="#cfa355"
+                strokeWidth="24"
+                strokeLinecap="round"
+                fill="none"
+                strokeDasharray={outerCircumference}
+                strokeDashoffset={outerDashoffset}
+              />
+              <circle
+                cx="180"
+                cy="180"
+                r={innerRadius}
+                stroke="#2f2f2f"
+                strokeWidth="18"
+                fill="none"
+              />
+              <circle
+                cx="180"
+                cy="180"
+                r={innerRadius}
+                stroke="rgba(255,255,255,0.2)"
+                strokeWidth="18"
+                strokeLinecap="round"
+                fill="none"
+                strokeDasharray={innerCircumference}
+                strokeDashoffset={innerDashoffset}
+              />
+            </svg>
+            <div className="pointer-events-none absolute right-[-72px] top-[28px] hidden h-[230px] w-[76px] rounded-t-[18px] border border-[#2f2f2f] bg-[#191919] lg:flex">
+              <div
+                className="mt-auto w-full bg-[#cfa355]/80 transition-all duration-500"
+                style={{ height: `${stylizedProgressValue}%` }}
+              />
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-4 text-[0.65rem] uppercase tracking-[0.35em] text-white/40 sm:text-xs">
-          <span>GenAI systems · Full-stack delivery · Mobile ops</span>
-          <span>Stay with me—experience loads soon</span>
+
+        <div className="flex flex-1 items-end">
+          <div className="flex w-full flex-col gap-10">
+            <div className="flex flex-wrap items-baseline gap-4 text-white">
+              <span className="text-[10vw] font-semibold leading-none sm:text-7xl lg:text-8xl xl:text-9xl">
+                {displayProgress.toString().padStart(2, "0")}
+                <span className="ml-1 text-4xl align-top text-white/60">%</span>
+              </span>
+              <span className="text-xs uppercase tracking-[0.4em] text-white/40">
+                {statusLabel}
+              </span>
+            </div>
+
+            <div className="loader-bars flex w-full max-w-xs flex-col gap-3">
+              {[0, 1, 2].map((idx) => (
+                <div
+                  key={`loader-bar-${idx}`}
+                  className="h-3 rounded-full bg-[#141824]"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-6 text-[0.65rem] uppercase tracking-[0.35em] text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <span>Powered by Matthew Raymond Hartono</span>
+          <span className="mx-auto hidden items-center gap-2 text-white/50 sm:flex">
+            <span className="h-px w-10 bg-white/25" aria-hidden="true" />
+            Scroll down
+          </span>
+          <span className="text-right sm:text-left">{todayLabel}</span>
         </div>
       </div>
     </div>
