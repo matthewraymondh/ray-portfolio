@@ -111,6 +111,66 @@
   }
 }
 
+@keyframes scroll-button-dot {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.scroll-button {
+  pointer-events: auto;
+  position: relative;
+  display: inline-block;
+  padding-top: 60px;
+  color: var(--color-ink);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-button:hover {
+  opacity: 0.6;
+}
+
+.scroll-button span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 30px;
+  height: 50px;
+  margin-left: -15px;
+  border: 2px solid currentColor;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+.scroll-button span::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: currentColor;
+  border-radius: 50%;
+  animation: scroll-button-dot 2s infinite;
+  box-sizing: border-box;
+}
+
 @keyframes loaderPulse {
   0%,
   100% {

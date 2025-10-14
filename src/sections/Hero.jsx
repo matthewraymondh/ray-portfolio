@@ -17,12 +17,17 @@ Currently guiding intelligent platforms at PT Erlangga Edi Laboratories.`;
         title={"Matthew Raymond"}
         text={text}
         textColor={"text-black"}
-        primaryCta={{
-          label: "Connect on LinkedIn",
-          href: "https://www.linkedin.com/in/matthew-raymond-hartono-915310176",
-        }}
-        secondaryCta={{ label: "View selected work", href: "#work" }}
       />
+      <div className="relative flex justify-center w-full mt-12 mb-20 pointer-events-none lg:mb-28">
+        <a
+          href="#work"
+          className="scroll-button"
+          aria-label="Scroll to view selected work"
+        >
+          <span aria-hidden="true" />
+          Scroll
+        </a>
+      </div>
       <figure className="absolute inset-0 -z-50">
         <Canvas
           shadows
